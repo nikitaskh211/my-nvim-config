@@ -1,0 +1,32 @@
+# Ignore swap files created by Neovim
+*.swp
+*.swo
+*.swn
+
+# Ignore session files
+Session.vim
+.nvim_session
+
+# For lazy.nvim
+lazy-lock.json
+
+# Ignore backup files
+*.bak
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore local configuration overrides
+init.local.lua
+lua/local_config/*.lua
+
+# Ignore temporary or build files
+tmp/
+build/
+
+# Ignore personal data
+secrets.json
