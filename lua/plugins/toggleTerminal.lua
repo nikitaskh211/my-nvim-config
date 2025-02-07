@@ -20,10 +20,9 @@ return {
 				border = "curved",
 				width = 120, -- Set a fixed width
 				height = 30, -- Set a fixed height
-				winblend = 10, -- Add transparency (optional)
 				highlights = {
 					border = "ToggleTermBorder",
-					background = "ToggleTermBackground",
+					background = "none",
 				},
 			},
 			scroll_buffer = 0, -- Disable scrollback buffer limit
@@ -36,10 +35,6 @@ return {
 		end
 
 		vim.keymap.set("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "Toggle LazyGit" })
-
-		-- Transparent background
-		vim.cmd([[highlight ToggleTermFloat guibg=none ctermbg=none]])
-		vim.cmd([[highlight ToggleTermBorder guibg=none ctermbg=none]])
 
 		-- Open terminal in current file's directory
 		vim.keymap.set("n", "<leader>tt", function()
