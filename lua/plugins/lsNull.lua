@@ -10,6 +10,7 @@ return {
         null_ls.builtins.formatting.findent,  -- Fortran formatter
         null_ls.builtins.formatting.clang_format, -- C/C++ formatter
         null_ls.builtins.formatting.rustywind, -- Tailwind CSS class sorter
+        null_ls.builtins.formatting.rustyfmt,
       },
     })
     vim.keymap.set("n", "<leader>gf", function()
