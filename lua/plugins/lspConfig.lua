@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "asm_lsp", "fortls", "clangd", "rust_analyzer" },
+				ensure_installed = { "lua_ls", "asm_lsp", "fortls", "clangd", "buildifier", "rust_analyzer" },
 				automatic_installation = true,
 			})
 		end,
@@ -32,7 +32,7 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.cmake.setup({
+			lspconfig.buildifier.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.rust_analyzer.setup({
