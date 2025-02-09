@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "asm_lsp", "fortls", "clangd", "buildifier", "rust_analyzer" },
+				ensure_installed = { "lua_ls", "asm_lsp", "fortls", "clangd", "neocmake", "rust_analyzer" },
 				automatic_installation = true,
 			})
 		end,
@@ -20,24 +20,48 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			-- Lua Language Server
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+
+			-- Assembly Language Server
 			lspconfig.asm_lsp.setup({
 				capabilities = capabilities,
 			})
+
+			-- Fortran Language Server
 			lspconfig.fortls.setup({
 				capabilities = capabilities,
 			})
+
+			-- Clangd (C/C++ Language Server)
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.buildifier.setup({
+
+			-- CMake Language Server
+			lspconfig.neocmake.setup({
 				capabilities = capabilities,
+				settings = {
+					cmake = {
+						lint = {
+							enable = true,
+						},
+						format = {
+							enable = true,
+						},
+					},
+				},
 			})
+
+			-- Rust Analyzer
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 			})
+
+			-- Keybindings for LSP functionality
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
